@@ -32,3 +32,16 @@ function clearEventForm() {
 }
 
 // Pode ser expandido com recursos de armazenamento persistente (por exemplo, local storage) e interações mais avançadas.
+// Salvar eventos no Local Storage
+function saveEventsToLocalStorage() {
+  localStorage.setItem('events', JSON.stringify(events));
+}
+
+// Carregar eventos do Local Storage
+function loadEventsFromLocalStorage() {
+  const storedEvents = JSON.parse(localStorage.getItem('events'));
+  if (storedEvents) {
+    events.push(...storedEvents);
+    updateEventList();
+  }
+}
